@@ -73,7 +73,7 @@ public class Login {
 			WebElement error=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div/div/div[2]/div[3]/div/div/div/div[2]/div/span[1]")));
 			Thread.sleep(5000);
 			if(error.isDisplayed()) {
-				System.out.println("Login Filed");
+				System.out.println("Login Failed");
 				scrnShot.take();
 			}
 		} catch (Exception e) {
