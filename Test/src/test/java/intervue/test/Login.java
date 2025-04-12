@@ -87,12 +87,8 @@ public class Login {
 
 	@Test(dependsOnMethods = "loginCredtials")
 	public void search() {
-		wait.until(ExpectedConditions.urlContains("/profile/dashboard"));
-		System.out.println(driver.getCurrentUrl());
-		WebElement body = driver.findElement(By.tagName("body"));
-		body.click();
-		Actions actions = new Actions(driver);
-		actions.keyDown(Keys.CONTROL).sendKeys("k").keyUp(Keys.CONTROL).build().perform();
+		WebElement searchele = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='search_placeholder']")));
+		searchele.click();
 		WebElement searchPopup = driver.findElement(By.xpath("/html[1]/body[1]/div[9]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/input[1]"));
 		wait.until(ExpectedConditions.visibilityOf(searchPopup));
 		if(searchPopup.isDisplayed()) {
